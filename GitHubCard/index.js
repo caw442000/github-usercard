@@ -107,6 +107,7 @@ function createCard(gitObject){
   const followers = document.createElement('p');
   const following = document.createElement('p');
   const bio = document.createElement('p');
+  const profileAddress = document.createElement('a');
 
 
   //append elements to each other
@@ -120,6 +121,8 @@ function createCard(gitObject){
   cardInfo.append(following);
   cardInfo.append(bio);
 
+
+
   //add classes to elements
   card.classList.add("card");
   cardInfo.classList.add("card-info");
@@ -129,13 +132,20 @@ function createCard(gitObject){
 
   image.src = gitObject.data.avatar_url;
   //console.log(image.src)
-  userName.textContent = `Username:${gitObject.data.login}`;
+  userName.textContent = `Username: ${gitObject.data.login}`;
   name.textContent = `Name: ${gitObject.data.name}`;
-  location.textContent = `Location: ${gitObject.data.data}`;
-  profile.textContent = `Profile: ${gitObject.data.html_url}`;
+  location.textContent = `Location: ${gitObject.data.location}`;
+ // profile.textContent = `Profile: ${gitObject.data.html_url}`;
+ profile.textContent = `Profile: `;
   followers.textContent = `Followers: ${gitObject.data.followers}`;
   following.textContent = `Following: ${gitObject.data.following}`;
   bio.textContent = `Bio: ${gitObject.data.bio}`;
+  profileAddress.href = gitObject.data.html_url;
+  profileAddress.textContent = `${gitObject.data.html_url}`;
+
+  // address.setAttribute("href", gitObject.data.html_url);
+
+  profile.appendChild(profileAddress);
 
 
 
