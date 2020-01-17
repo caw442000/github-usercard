@@ -117,6 +117,7 @@ function createCard(gitObject){
   cardInfo.append(userName);
   cardInfo.append(location);
   cardInfo.append(profile);
+  //profile.append(profileAddress);
   cardInfo.append(followers);
   cardInfo.append(following);
   cardInfo.append(bio);
@@ -136,16 +137,16 @@ function createCard(gitObject){
   name.textContent = `Name: ${gitObject.data.name}`;
   location.textContent = `Location: ${gitObject.data.location}`;
  // profile.textContent = `Profile: ${gitObject.data.html_url}`;
- profile.textContent = `Profile: `;
+  profile.textContent = `Profile: `;
   followers.textContent = `Followers: ${gitObject.data.followers}`;
   following.textContent = `Following: ${gitObject.data.following}`;
   bio.textContent = `Bio: ${gitObject.data.bio}`;
   profileAddress.href = gitObject.data.html_url;
-  profileAddress.textContent = `${gitObject.data.html_url}`;
+  profileAddress.textContent = gitObject.data.html_url;
 
-  // address.setAttribute("href", gitObject.data.html_url);
+  //address.setAttribute("href", gitObject.data.html_url);
 
-  profile.appendChild(profileAddress);
+ profile.append(profileAddress);
 
 
 
